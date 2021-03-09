@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>All Profiles</h1>
+  <div class="Index">
+    <h1>All profiles</h1>
     Search:
     <input v-model="titleFilter" type="text" list="profile-titles" />
     <datalist id="profile-titles">
@@ -17,6 +17,7 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 export default {
   data: function() {
     return {
@@ -29,7 +30,7 @@ export default {
   methods: {
     indexProfile: function() {
       axios.get("/api/profiles").then(response => {
-        console.log("All Profiles", response);
+        console.log("All profiles", response);
         this.profiles = response.data;
       });
     },
