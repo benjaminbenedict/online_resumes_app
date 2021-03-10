@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1>Student Profiles:</h1>
+    <!-- <h1>Student Profiles:</h1>
     Search:
     <input v-model="firstNameFilter" type="text" list="profile-first_names" />
     <datalist class="profile-first_names">
       <option v-for="profile in profiles" :key="profile.id">{{ profile.first_name }} {{ profile.last_name }}/></option>
-    </datalist>
+    </datalist> -->
     <div
       is="transition-group"
       class="row"
@@ -13,11 +13,7 @@
       enter-active-class="animated fadeIn"
       leave-active-class="animated fadeOut"
     >
-      <div
-        class="col-sm-6"
-        v-for="profile in filterBy(profiles, firstNameFilter, 'first_name')"
-        v-bind:key="profile.id"
-      >
+      <div class="col-sm-6" v-for="profile in profiles" v-bind:key="profile.id">
         <div class="card">
           <img :src="profile.photo" class="card-img-top" />
           <div class="card-body">

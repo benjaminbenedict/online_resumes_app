@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1 href="/profile">All Profiles</h1>
+    <router-link to="/profile">All profiles</router-link>
   </div>
 </template>
 
