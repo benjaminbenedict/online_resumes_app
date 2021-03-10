@@ -11,21 +11,21 @@
 <script>
 import axios from "axios";
 export default {
-  data: function () {
+  data: function() {
     return {
       post: {},
     };
   },
-  created: function () {
-    this.showPost();
-  },
-  methods: {
-    showPost: function () {
-      axios.get("/api/posts/" + this.$route.params.id).then((response) => {
-        console.log(response.data);
-        this.post = response.data;
-      });
-    },
-  },
+  // created: function () {
+  //   this.showPost();
+  // },
+  // methods: {
+  //   showPost: function () {
+  //     axios.get("/api/posts/" + this.$route.params.id).then((response) => {
+  //       console.log(response.data);
+  //       this.post = response.data;
+  //     });
+  //   },
+  // },
 };
 </script>
