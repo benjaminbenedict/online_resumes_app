@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import ProductsIndex from "../views/ProductsIndex.vue";
-import ProductsShow from "../views/ProductsShow.vue";
+import ProfileIndex from "../views/ProfileIndex.vue";
+import ProfileShow from "../views/ProfileShow.vue";
 
 Vue.use(VueRouter);
 
@@ -21,14 +21,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: "/products",
-    name: "products-index",
-    component: ProductsIndex,
+    path: "/profile",
+    name: "profile-index",
+    component: ProfileIndex,
   },
   {
-    path: "/products/:id",
-    name: "products-show",
-    component: ProductsShow,
+    path: "/profile/:id",
+    name: "profile-show",
+    component: ProfileShow,
   },
 ];
 
