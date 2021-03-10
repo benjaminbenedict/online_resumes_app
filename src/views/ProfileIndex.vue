@@ -16,11 +16,54 @@
 <style></style>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   data: function() {
     return {
-      profiles: {},
+      profiles: [
+        {
+          id: 1,
+          first_name: "Owen",
+          last_name: "Luu",
+          email: "owen@test.com",
+          phone_number: "1111111111",
+          short_bio: "this is owen's short bio",
+          linkedin_url: "linkedin.com/owen",
+          twitter_handle: "Owen twitter handle",
+          website_url: "github.io/owenluu",
+          resume_url: "owen luu resume url",
+          github_url: "owen luu github url",
+          photo: "photo",
+        },
+        {
+          id: 2,
+          first_name: "Ben",
+          last_name: "Benedict",
+          email: "ben@test.com",
+          phone_number: "2222222222",
+          short_bio: "this is ben's short bio",
+          linkedin_url: "linkedin.com/ben",
+          twitter_handle: "ben twitter handle",
+          website_url: "github.io/benluu",
+          resume_url: "ben luu resume url",
+          github_url: "ben luu github url",
+          photo: "photo",
+        },
+        {
+          id: 3,
+          first_name: "Joseph",
+          last_name: "Tastet",
+          email: "joseph@test.com",
+          phone_number: "3333333333",
+          short_bio: "this is joseph's short bio",
+          linkedin_url: "linkedin.com/joseph",
+          twitter_handle: "joseph twitter handle",
+          website_url: "github.io/josephluu",
+          resume_url: "joseph luu resume url",
+          github_url: "joseph luu github url",
+          photo: "photo",
+        },
+      ],
     };
   },
   //   created: function() {

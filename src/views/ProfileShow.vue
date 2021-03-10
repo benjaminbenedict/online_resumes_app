@@ -9,11 +9,24 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   data: function() {
     return {
-      post: {},
+      profile: {
+        id: 3,
+        first_name: "Joseph",
+        last_name: "Tastet",
+        email: "joseph@test.com",
+        phone_number: "3333333333",
+        short_bio: "this is joseph's short bio",
+        linkedin_url: "linkedin.com/joseph",
+        twitter_handle: "joseph twitter handle",
+        website_url: "github.io/josephluu",
+        resume_url: "joseph luu resume url",
+        github_url: "joseph luu github url",
+        photo: "photo",
+      },
     };
   },
   // created: function () {
