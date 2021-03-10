@@ -7,23 +7,23 @@
 <style></style>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 export default {
   data: function() {
     return {
       profiles: [],
     };
   },
-  // created: function() {
-  //   this.indexprofiles();
-  // },
-  // methods: {
-  //   indexprofiles: function() {
-  //     axios.get("/api/profiles").then(response => {
-  //       console.log("profiles index", response);
-  //       this.profiles = response.data;
-  //     });
-  //   },
-  // },
+  created: function() {
+    this.indexprofiles();
+  },
+  methods: {
+    indexprofiles: function() {
+      axios.get("/api/students").then(response => {
+        console.log("profiles index", response);
+        // this.profiles = response.data;
+      });
+    },
+  },
 };
 </script>
