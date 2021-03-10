@@ -23,16 +23,16 @@ export default {
       profiles: {},
     };
   },
-  created: function() {
-    this.indexProfile();
-  },
-  methods: {
-    indexProfile: function() {
-      axios.get("/api/profiles").then(response => {
-        console.log("All Profiles", response);
-        this.profiles = response.data;
-      });
-    },
-  },
+  //   created: function() {
+  //     this.indexProfile();
+  //   },
+  //   methods: {
+  //     indexProfile: function() {
+  //       axios.get("/api/profiles").then(response => {
+  //         console.log("All Profiles", response);
+  //         this.profiles = response.data;
+  //       });
+  //     },
+  //   },
 };
 </script>
