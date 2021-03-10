@@ -14,36 +14,36 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 export default {
   data: function() {
     return {
       profile: {
-        id: 3,
-        first_name: "Joseph",
-        last_name: "Tastet",
-        email: "joseph@test.com",
-        phone_number: "3333333333",
-        short_bio: "this is joseph's short bio",
-        linkedin_url: "linkedin.com/joseph",
-        twitter_handle: "joseph twitter handle",
-        website_url: "github.io/josephluu",
-        resume_url: "joseph tastet resume url",
-        github_url: "joseph tastet github url",
-        photo: "photo",
+        // id: 3,
+        // first_name: "Joseph",
+        // last_name: "Tastet",
+        // email: "joseph@test.com",
+        // phone_number: "3333333333",
+        // short_bio: "this is joseph's short bio",
+        // linkedin_url: "linkedin.com/joseph",
+        // twitter_handle: "joseph twitter handle",
+        // website_url: "github.io/josephluu",
+        // resume_url: "joseph tastet resume url",
+        // github_url: "joseph tastet github url",
+        // photo: "photo",
       },
     };
   },
-  // created: function() {
-  //   this.showPost();
-  // },
-  // methods: {
-  //   showPost: function() {
-  //     axios.get("/api/students/" + this.$route.params.id).then(response => {
-  //       console.log(response.data);
-  //       // this.post = response.data;
-  //     });
-  //   },
-  // },
+  created: function() {
+    this.showProfile();
+  },
+  methods: {
+    showProfile: function() {
+      axios.get("/api/students/" + this.$route.params.id).then(response => {
+        console.log(response.data);
+        this.profile = response.data;
+      });
+    },
+  },
 };
 </script>
