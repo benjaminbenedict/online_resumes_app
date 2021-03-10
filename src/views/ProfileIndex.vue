@@ -25,6 +25,9 @@
         <br />
       </div>
     </div>
+    <a class="twitter-timeline" :href="`https://twitter.com/${profiles[0].twitter_handle}?ref_src=twsrc%5Etfw`">
+      Tweets by {{ profiles[0].first_name }}
+    </a>
   </div>
 </template>
 
@@ -44,7 +47,7 @@ export default {
           phone_number: "1111111111",
           short_bio: "this is owen's short bio",
           linkedin_url: "linkedin.com/owen",
-          twitter_handle: "Owen twitter handle",
+          twitter_handle: "snkrsenpai",
           website_url: "github.io/owenluu",
           resume_url: "owen luu resume url",
           github_url: "owen luu github url",
@@ -82,6 +85,12 @@ export default {
       firstNameFilter: "",
     };
   },
+  mounted() {
+    let recaptchaScript = document.createElement("script");
+    recaptchaScript.setAttribute("src", "https://platform.twitter.com/widgets.js");
+    document.head.appendChild(recaptchaScript);
+  },
+
   //   created: function() {
   //     this.indexProfile();
   //   },

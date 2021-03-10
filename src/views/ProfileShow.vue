@@ -28,8 +28,8 @@ export default {
         linkedin_url: "linkedin.com/joseph",
         twitter_handle: "joseph twitter handle",
         website_url: "github.io/josephluu",
-        resume_url: "joseph luu resume url",
-        github_url: "joseph luu github url",
+        resume_url: "joseph tastet resume url",
+        github_url: "joseph tastet github url",
         photo: "photo",
       },
     };
