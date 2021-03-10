@@ -1,10 +1,15 @@
 <template>
   <div>
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
-    <a v-bind:href="`/posts/${post.id}/edit`">Edit This Post</a>
-    <br />
-    <a href="/posts">Back to all Posts</a>
+    <h2>{{ profile.first_name }} {{ profile.last_name }}</h2>
+    <p>Contact Me: email: {{ profile.email }}, phone number: {{ profile.phone_number }}</p>
+    <h2>A little about me</h2>
+    <p>{{ profile.short_bio }}</p>
+    <h2>Check me out @</h2>
+    <p>Linkedin: {{ profile.linkedin_url }}</p>
+    <p>Twitter: {{ profile.twitter_handle }}</p>
+    <p>Personal Website: {{ profile.website_url }}</p>
+    <p>github: {{ profile.github_url }}</p>
+    <a href="/profile">Back to all Profiles</a>
   </div>
 </template>
 
