@@ -1,15 +1,34 @@
 <template>
-  <div class="home">
-    <h1>All Profiles</h1>
+  <div>
+    <h1>Student Profiles:</h1>
     Search:
-    <input v-model="titleFilter" type="text" list="profile-titles" />
-    <datalist id="profile-titles">
-      <option v-for="profile in profiles" v-bind:key="profile.id">{{ profile.name }}</option>
+    <input v-model="firstNameFilter" type="text" list="profile-first_names" />
+    <datalist class="profile-first_names">
+      <option v-for="profile in profiles" :key="profile.id">{{ profile.first_name }} {{ profile.last_name }}/></option>
     </datalist>
-    <h2>{{ profile.name }}</h2>
-    <img v-bind:src="photo.url" v-bind:alt="profile.name" />
-    <!-- <p>Width: {{ resume.width }}</p>
-      <p>Height: {{ resume.height }}</p> -->
+    <div
+      is="transition-group"
+      class="row"
+      appear
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut"
+    >
+      <div
+        class="col-sm-6"
+        v-for="profile in filterBy(profiles, firstNameFilter, 'first_name')"
+        v-bind:key="profile.id"
+      >
+        <div class="card">
+          <img :src="profile.photo" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">{{ profile.first_name }} {{ profile.last_name }}</h5>
+            <p class="card-text">{{ profile.short_bio }}</p>
+            <a href="" class="btn btn-primary">View Profile</a>
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -64,6 +83,7 @@ export default {
           photo: "photo",
         },
       ],
+      firstNameFilter: "",
     };
   },
   //   created: function() {
