@@ -19,7 +19,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ profile.first_name }} {{ profile.last_name }}</h5>
             <p class="card-text">{{ profile.short_bio }}</p>
-            <a href="" class="btn btn-primary">View Profile</a>
+            <a :href="`/profile/${profile.id}`" class="btn btn-primary">View Profile</a>
           </div>
         </div>
         <br />
