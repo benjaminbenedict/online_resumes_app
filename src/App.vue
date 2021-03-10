@@ -2,7 +2,7 @@
   <div id="app">
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Better than Linkedin</a>
+        <a class="navbar-brand" href="/home">Better Than Linkedin</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -19,12 +19,12 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">
-                Home
+                All Profiles
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="../views/ProfileIndex.vue">Link</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -85,5 +85,11 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+body {
+  font-family: Futura, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
+  background-size: cover;
 }
 </style>

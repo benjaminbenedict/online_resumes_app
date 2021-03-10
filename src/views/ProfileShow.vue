@@ -34,14 +34,14 @@ export default {
       },
     };
   },
-  // created: function () {
+  // created: function() {
   //   this.showPost();
   // },
   // methods: {
-  //   showPost: function () {
-  //     axios.get("/api/posts/" + this.$route.params.id).then((response) => {
+  //   showPost: function() {
+  //     axios.get("/api/students/" + this.$route.params.id).then(response => {
   //       console.log(response.data);
-  //       this.post = response.data;
+  //       // this.post = response.data;
   //     });
   //   },
   // },
