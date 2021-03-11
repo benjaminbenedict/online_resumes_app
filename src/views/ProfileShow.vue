@@ -4,11 +4,30 @@
     <p>Contact Me: email: {{ profile.email }}, phone number: {{ profile.phone_number }}</p>
     <h2>A little about me</h2>
     <p>{{ profile.short_bio }}</p>
+    <h2>My Skills:</h2>
+    <div v-for="skill in skills" :key="skill.id">
+      <p>{{ skill.skill_name }}</p>
+    </div>
     <h2>Check me out @</h2>
     <p>Linkedin: {{ profile.linkedin_url }}</p>
     <p>Twitter: {{ profile.twitter_handle }}</p>
     <p>Personal Website: {{ profile.website_url }}</p>
     <p>github: {{ profile.github_url }}</p>
+    <h2>Experience:</h2>
+    <div v-for="experience in experiences" :key="experience.id">
+      <h3>{{ experience.company_name }}: {{ experiences.job_title }}</h3>
+      <p>Job details: {{ experience.details }}</p>
+      <p>From: {{ experience.start_date }} to {{ experience.end_date }}</p>
+    </div>
+    <h2>Educations:</h2>
+    <div v-for="education in educations" :key="education.id">
+      <h3>{{ education.university_name }}: {{ education.degree }}</h3>
+      <p>{{ education.details }}</p>
+      <p>From {{ education.start_date }} to {{ education.end_date }}</p>
+    </div>
+    <a class="twitter-timeline" :href="`https://twitter.com/${profile.twitter_handle}?ref_src=twsrc%5Etfw`">
+      Tweets by {{ profile.first_name }}
+    </a>
     <a href="/profile">Back to all Profiles</a>
   </div>
 </template>
@@ -32,6 +51,10 @@ export default {
         // github_url: "joseph tastet github url",
         // photo: "photo",
       },
+      experiences: [],
+      skills: [],
+      projects: [],
+      educations: [],
     };
   },
   created: function() {
@@ -42,8 +65,17 @@ export default {
       axios.get("/api/students/" + this.$route.params.id).then(response => {
         console.log(response.data);
         this.profile = response.data;
+        this.experiences = this.profile.experiences;
+        this.skills = this.profile.skills;
+        this.projects = this.profile.projects;
+        this.educations = this.profile.educations;
       });
     },
+  },
+  mounted() {
+    let recaptchaScript = document.createElement("script");
+    recaptchaScript.setAttribute("src", "https://platform.twitter.com/widgets.js");
+    document.head.appendChild(recaptchaScript);
   },
 };
 </script>
