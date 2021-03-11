@@ -8,11 +8,6 @@
     <div v-for="skill in skills" :key="skill.id">
       <p>{{ skill.skill_name }}</p>
     </div>
-    <h2>Check me out @</h2>
-    <p>Linkedin: {{ profile.linkedin_url }}</p>
-    <p>Twitter: {{ profile.twitter_handle }}</p>
-    <p>Personal Website: {{ profile.website_url }}</p>
-    <p>github: {{ profile.github_url }}</p>
     <h2>Experience:</h2>
     <div v-for="experience in experiences" :key="experience.id">
       <h3>{{ experience.company_name }}: {{ experiences.job_title }}</h3>
@@ -25,10 +20,22 @@
       <p>{{ education.details }}</p>
       <p>From {{ education.start_date }} to {{ education.end_date }}</p>
     </div>
+    <h2>Projects:</h2>
+    <div v-for="project in projects" :key="project.id">
+      <h3>{{ project.name }}:</h3>
+      <img :src="project.screenshot" />
+      <p>{{ project.description }}</p>
+      <p>Find this project @: {{ project.url }}</p>
+    </div>
+    <h2>Check me out @</h2>
+    <p>Linkedin: {{ profile.linkedin_url }}</p>
+    <p>Twitter: {{ profile.twitter_handle }}</p>
+    <p>Personal Website: {{ profile.website_url }}</p>
+    <p>github: {{ profile.github_url }}</p>
+    <a href="/profile">Back to all Profiles</a>
     <a class="twitter-timeline" :href="`https://twitter.com/${profile.twitter_handle}?ref_src=twsrc%5Etfw`">
       Tweets by {{ profile.first_name }}
     </a>
-    <a href="/profile">Back to all Profiles</a>
   </div>
 </template>
 
