@@ -49,8 +49,14 @@
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+          <form v-on:submit.prevent="submit" class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              v-model="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -71,7 +77,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  font-display: bold;
+  color: blue;
 }
 
 #nav {
@@ -80,7 +87,7 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: blue;
 }
 
 #nav a.router-link-exact-active {
@@ -89,7 +96,28 @@
 
 body {
   font-family: Futura, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
-  background-image: url("https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
+  background-image: url("https://images.unsplash.com/photo-1507120497701-dd72185ed433?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80");
   background-size: cover;
 }
 </style>
+
+<script>
+export default {
+  data: function() {
+    return {
+      search: "",
+    };
+  },
+  methods: {
+    submit: function() {
+      console.log(this.search);
+      var finalSearch = this.search;
+      this.search = "";
+      this.$router.push("/profile?search=" + finalSearch);
+    },
+  },
+  // created: function() {
+  //   this.indexProfiles();
+  // },
+};
+</script>
