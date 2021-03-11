@@ -9,6 +9,16 @@
     <p>Twitter: {{ profile.twitter_handle }}</p>
     <p>Personal Website: {{ profile.website_url }}</p>
     <p>github: {{ profile.github_url }}</p>
+    <h2>Experience:</h2>
+    <div v-for="experience in experiences" :key="experience.id">
+      <h3>{{ experience.company_name }}: {{ experiences.job_title }}</h3>
+      <p>Job details: {{ experience.details }}</p>
+      <p>From: {{ experiences.start_date }} to {{ experiences.end_date }}</p>
+    </div>
+
+    <a class="twitter-timeline" :href="`https://twitter.com/${profile.twitter_handle}?ref_src=twsrc%5Etfw`">
+      Tweets by {{ profile.first_name }}
+    </a>
     <a href="/profile">Back to all Profiles</a>
   </div>
 </template>
@@ -32,6 +42,7 @@ export default {
         // github_url: "joseph tastet github url",
         // photo: "photo",
       },
+      experiences: [],
     };
   },
   created: function() {
@@ -42,8 +53,14 @@ export default {
       axios.get("/api/students/" + this.$route.params.id).then(response => {
         console.log(response.data);
         this.profile = response.data;
+        this.experiences = this.profile.experiences;
       });
     },
+  },
+  mounted() {
+    let recaptchaScript = document.createElement("script");
+    recaptchaScript.setAttribute("src", "https://platform.twitter.com/widgets.js");
+    document.head.appendChild(recaptchaScript);
   },
 };
 </script>

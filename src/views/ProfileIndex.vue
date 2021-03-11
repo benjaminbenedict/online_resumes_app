@@ -25,9 +25,6 @@
         <br />
       </div>
     </div>
-    <a class="twitter-timeline" :href="`https://twitter.com/${profiles[0].twitter_handle}?ref_src=twsrc%5Etfw`">
-      Tweets by {{ profiles[0].first_name }}
-    </a>
   </div>
 </template>
 
@@ -39,6 +36,7 @@ export default {
   data: function() {
     return {
       profiles: [
+        {},
         // {
         //   id: 1,
         //   first_name: "Owen",
@@ -84,11 +82,6 @@ export default {
       ],
       firstNameFilter: "",
     };
-  },
-  mounted() {
-    let recaptchaScript = document.createElement("script");
-    recaptchaScript.setAttribute("src", "https://platform.twitter.com/widgets.js");
-    document.head.appendChild(recaptchaScript);
   },
 
   //   created: function() {
