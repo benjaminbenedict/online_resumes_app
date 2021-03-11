@@ -1,11 +1,10 @@
 <template>
   <div>
-    <!-- <h1>Student Profiles:</h1>
     Search:
-    <input v-model="firstNameFilter" type="text" list="profile-first_names" />
+    <input v-model="search" type="text" list="profile-first_names" />
     <datalist class="profile-first_names">
       <option v-for="profile in profiles" :key="profile.id">{{ profile.first_name }} {{ profile.last_name }}/></option>
-    </datalist> -->
+    </datalist>
     <div
       is="transition-group"
       class="row"
@@ -13,7 +12,7 @@
       enter-active-class="animated fadeIn"
       leave-active-class="animated fadeOut"
     >
-      <div class="col-sm-6" v-for="profile in profiles" v-bind:key="profile.id">
+      <div class="col-sm-6" v-for="profile in filterBy(profiles, search, 'first_name')" v-bind:key="profile.id">
         <div class="card">
           <img :src="profile.photo" class="card-img-top" />
           <div class="card-body">
@@ -35,10 +34,13 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       profiles: [
+        {},
         // {
         //   id: 1,
         //   first_name: "Owen",
@@ -82,9 +84,10 @@ export default {
         //   photo: "photo",
         // },
       ],
-      firstNameFilter: "",
+      search: "",
     };
   },
+
   mounted() {
     let recaptchaScript = document.createElement("script");
     recaptchaScript.setAttribute("src", "https://platform.twitter.com/widgets.js");
@@ -103,6 +106,7 @@ export default {
   //     },
   //   },
   created: function() {
+    this.search = this.$route.query.search;
     this.indexProfile();
   },
   methods: {
